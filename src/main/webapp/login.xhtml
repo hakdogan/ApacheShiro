@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Kodcu.Com Tutorial - Apache Shiro JDBC Realm</title>
+    </h:head>
+    <h:body>
+        <center>
+        <h1>Login Page</h1>
+            <h:form prependId="false">
+                <h:messages showDetail="true" />
+                <h:panelGrid columns="2" cellpadding="2" cellspacing="2" style="border: #cccccc 1px solid; padding: 20px;">
+                    <f:facet name="header">
+                        <h:outputLabel value="Login Form"/>
+                    </f:facet>
+                    <h:outputLabel value="Username"/>
+                    <h:inputText value="#{loginBean.username}" size="20"/>
+
+                    <h:outputLabel value="Password"/>
+                    <h:inputSecret value="#{loginBean.password}" size="20"/>
+
+                    <h:outputLabel/>
+                    <h:panelGroup>
+                        <h:selectBooleanCheckbox value="#{loginBean.rememberMe}" />
+                        <h:outputLabel value="Remember me" style="font-size: small; color: #cccccc"/>
+                    </h:panelGroup>
+                    <h:outputLabel />
+                    <h:commandButton action="#{loginBean.login()}" value="Login"/>
+
+                </h:panelGrid>
+            </h:form>
+        </center>
+    </h:body>
+</html>
