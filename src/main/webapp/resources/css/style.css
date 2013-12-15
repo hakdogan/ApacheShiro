@@ -1,0 +1,19 @@
+body {
+    padding: 5px;
+    font-size: 10pt;
+}
+
+.loginDiv {
+    height: 100%;
+    min-height: 250px;
+    font-weight: normal !important;
+}
+
+.loginTD {
+    padding-left: 10px;
+}
+
+#mainFrame {
+    width: 903px;
+    margin: 0 auto;
+}

@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ApacheShiro:war exploded">
+    <output-path>$PROJECT_DIR$/target/ApacheShiro-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ApacheShiro/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ApacheShiro" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.glassfish:javax.faces:2.2.4" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.4" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Maven: org.ops4j.pax.shiro:pax-shiro-faces:0.1.0" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.26" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -5,6 +5,7 @@
 package com.kodcu.bean;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.application.NavigationHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -65,24 +66,34 @@ public class LoginBean {
             
             currentUser.login(token);
             if(currentUser.hasRole("admin"))
-                
                 returnPage = "/admin/index.xhtml?faces-redirect=true";
             
         } catch (UnknownAccountException uae ) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Giriş başarısız", "kullanıcı adınız yanlış"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "Your username wrong"));
             return null;
         } catch (IncorrectCredentialsException ice ) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Giriş başarısız", "parolanız yanlış"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "Password is incorrect"));
             return null;
         } catch (LockedAccountException lae ) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Giriş başarısız", "Bu kullanıcı adı kilitli"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "This username is locked"));
             return null;
         } catch(AuthenticationException aex){
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Giriş başarısız", aex.toString()));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", aex.toString()));
             return null;
         }
         
         return returnPage;
+    }
+
+    public void authorizedUserControl(){
+
+
+        if(null != SecurityUtils.getSubject().getPrincipal()){
+
+            NavigationHandler nh =  FacesContext.getCurrentInstance().getApplication().getNavigationHandler();
+            nh.handleNavigation(FacesContext.getCurrentInstance(), null, "/authorized/index.xhtml?faces-redirect=true");
+
+        }
     }
     
 }
