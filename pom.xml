@@ -12,8 +12,8 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jsf.version>2.2.4</jsf.version>
-        <shiro.version>1.2.2</shiro.version>
+        <jsf.version>2.2.6</jsf.version>
+        <shiro.version>1.2.3</shiro.version>
         <mysql.version>5.1.26</mysql.version>
     </properties>
 
@@ -32,11 +32,18 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+        <!--
+        <dependency>
             <groupId>org.ops4j.pax.shiro</groupId>
             <artifactId>pax-shiro-faces</artifactId>
             <version>0.1.0</version>
         </dependency>
-
+        -->
 
         <dependency>
             <groupId>commons-logging</groupId>
@@ -49,14 +56,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>jboss</groupId>
+            <artifactId>jboss-j2ee</artifactId>
+            <version>4.2.2.GA</version>
+        </dependency>
         
+        <!--
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        
+        -->
     </dependencies>
 
     <build>

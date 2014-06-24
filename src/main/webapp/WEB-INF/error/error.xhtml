@@ -5,21 +5,21 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:s="http://shiro.ops4j.org/tags">
-    <head>
-        <title>Kodcu.Com Tutorial - Apache Shiro</title>
+    <h:head>
+        <title>Apache Shiro - Access is denied</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css"/>
-        <link href="resources/css/style.css" rel="stylesheet" media="screen"/>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js" type="text/javascript"/>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
         <!-- Bootstrap -->
-    </head>
-    <body>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
     <div id="mainFrame">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-inverse" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -37,8 +37,8 @@ and open the template in the editor.
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/login.xhtml">Home Page</a></li>
-                    <li><a href="/guest/index.xhtml">Guest Page</a></li>
-                    <li class="active"><a href="/admin/index.xhtml">Admin Page</a></li>
+                    <li><a href="/member/index.xhtml">Member Page</a></li>
+                    <li><a href="/admin/index.xhtml">Admin Page</a></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
@@ -49,9 +49,11 @@ and open the template in the editor.
             </div><!-- /.navbar-collapse -->
         </nav>
 
-        <h1>You are not authorized to view this page</h1>
-        <a href="/logout" class="btn btn-default">Log Out</a>
+        <div class="jumbotron">
+            <h2>HTTP Status 403 - Access is denied</h2>
+            <h3>You are not authorized to view this page</h3>
+        </div>
 
     </div>
-    </body>
+    </h:body>
 </html>

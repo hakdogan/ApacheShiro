@@ -1,31 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.kodcu.bean;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.application.NavigationHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 
 /**
- *
- * @author hakdogan
+ * Created by hakdogan on 24/06/14.
  */
 
-@ManagedBean(name= "loginBean")
+@ManagedBean
 @RequestScoped
-public class LoginBean {
-    
+public class ShiroBean {
+
     private String username, password;
     private boolean rememberMe;
 
@@ -52,48 +45,39 @@ public class LoginBean {
     public void setRememberMe(boolean rememberMe) {
         this.rememberMe = rememberMe;
     }
-    
-    public String login(){
-        
-        String returnPage = "/guest/index.xhtml?faces-redirect=true";
-        
-        Subject currentUser         = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-        
-        token.setRememberMe(rememberMe);
-        
+
+    public void loginUser(){
+
         try{
-            
+
+            Subject currentUser         = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(username, new Sha256Hash(password).toHex());
+
+            token.setRememberMe(rememberMe);
             currentUser.login(token);
-            if(currentUser.hasRole("admin"))
-                returnPage = "/admin/index.xhtml?faces-redirect=true";
-            
+
         } catch (UnknownAccountException uae ) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "Your username wrong"));
-            return null;
+
         } catch (IncorrectCredentialsException ice ) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "Password is incorrect"));
-            return null;
+
         } catch (LockedAccountException lae ) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "This username is locked"));
-            return null;
+
         } catch(AuthenticationException aex){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", aex.toString()));
-            return null;
         }
-        
-        return returnPage;
+
     }
 
     public void authorizedUserControl(){
 
-
         if(null != SecurityUtils.getSubject().getPrincipal()){
 
             NavigationHandler nh =  FacesContext.getCurrentInstance().getApplication().getNavigationHandler();
-            nh.handleNavigation(FacesContext.getCurrentInstance(), null, "/authorized/index.xhtml?faces-redirect=true");
+            nh.handleNavigation(FacesContext.getCurrentInstance(), null, "/member/index.xhtml?faces-redirect=true");
 
         }
     }
-    
 }

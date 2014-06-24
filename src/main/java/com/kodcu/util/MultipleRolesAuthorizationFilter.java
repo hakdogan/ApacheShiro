@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.kodcu.util;
 
 import java.io.IOException;
@@ -26,7 +21,6 @@ public class MultipleRolesAuthorizationFilter extends RolesAuthorizationFilter {
         final String[] rolesArray = (String[]) mappedValue;
 
         if (rolesArray == null || rolesArray.length == 0) {
-            //no roles specified, so nothing to check - allow access.
             return true;
         }
 

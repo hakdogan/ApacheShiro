@@ -9,21 +9,21 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <f:metadata>
-            <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{loginBean.authorizedUserControl}"/>
+            <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{shiroBean.authorizedUserControl}"/>
         </f:metadata>
         <title>Kodcu.Com Tutorial - Apache Shiro JDBC Realm</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
         <link href="resources/css/style.css" rel="stylesheet" media="screen"/>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js" type="text/javascript"/>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"/>
         <!-- Bootstrap -->
     </h:head>
     <h:body>
         <div id="mainFrame">
-            <nav class="navbar navbar-default" role="navigation">
+            <nav class="navbar navbar-inverse" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -38,8 +38,8 @@ and open the template in the editor.
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/authorized/index.xhtml">Home Page</a></li>
-                        <li><a href="/guest/index.xhtml">Guest Page</a></li>
+                        <li class="active"><a href="#">Home Page</a></li>
+                        <li><a href="/member/index.xhtml">Member Page</a></li>
                         <li><a href="/admin/index.xhtml">Admin Page</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
@@ -51,38 +51,37 @@ and open the template in the editor.
                 </div><!-- /.navbar-collapse -->
             </nav>
 
-            <div class="jumbotron">
-                <h2>Apache Shiro Tutorial</h2>
-            </div>
+            <div class="loginDiv">
+                <div style="width: 320px; margin: auto">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Giriş Formu</div>
+                        <br/>
+                        <h:form prependId="false">
 
+                            <h:messages showDetail="false" />
+                            <h:panelGrid columnClasses="loginTD" columns="2" cellpadding="2" cellspacing="2">
 
-        <div class="loginDiv">
-        <div style="width: 320px; margin: auto">
-        <div class="panel panel-default">
-            <div class="panel-heading">Giriş Formu</div>
-            <br/>
-            <h:form prependId="false">
-                <h:messages showDetail="true" />
-                <h:panelGrid columnClasses="loginTD" columns="2" cellpadding="2" cellspacing="2">
+                                <p>Username</p>
+                                <h:inputText value="#{shiroBean.username}"
+                                             required="true" requiredMessage="The username value is required." size="30"/>
 
-                    <p>Username</p>
-                    <h:inputText value="#{loginBean.username}" size="30"/>
+                                <p>Password</p>
+                                <h:inputSecret value="#{shiroBean.password}"
+                                               required="true" requiredMessage="The password value is required." size="30"/>
 
-                    <p>Password</p>
-                    <h:inputSecret value="#{loginBean.password}" size="30"/>
+                                <h:outputLabel/>
+                                <h:panelGroup>
+                                    <h:selectBooleanCheckbox value="#{shiroBean.rememberMe}" />
+                                    <p style=" display: inline; color: #cccccc; margin-left: 2px;">Remember me</p>
+                                </h:panelGroup>
+                                <h:outputLabel/>
+                                <h:commandButton action="#{shiroBean.loginUser}" styleClass="btn btn-primary" value="Login"/>
+                                <br/>
+                            </h:panelGrid>
 
-                    <h:outputLabel/>
-                    <h:panelGroup>
-                        <h:selectBooleanCheckbox value="#{loginBean.rememberMe}" />
-                        <p style=" display: inline; color: #cccccc; margin-left: 2px;">Remember me</p>
-                    </h:panelGroup>
-                    <h:outputLabel />
-                    <h:commandButton styleClass="btn btn-primary" action="#{loginBean.login()}" value="Login"/>
-                    <br/>
-                </h:panelGrid>
-            </h:form>
-            </div>
-            </div>
+                        </h:form>
+                    </div>
+                </div>
             </div>
         </div>
     </h:body>
