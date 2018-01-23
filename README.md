@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/hakdogan/ApacheShiro.svg?style=svg)](https://circleci.com/gh/hakdogan/ApacheShiro)
+
 # Apache Shiro
 
 This application illustrates and demonstrates use of the Apache Shiro JDBC Realm with MySQL Database and Java web application(JSF2.2) 
