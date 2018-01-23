@@ -30,14 +30,14 @@ and open the template in the editor.
             <a class="navbar-brand" href="#">Kodcu.Com</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>&#160;Log Out</a></li>
+            <li><a href="#{request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span>&#160;Log Out</a></li>
         </ul>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="#">Home Page</a></li>
-                <li class="active"><a href="/member/index.xhtml">Member Page</a></li>
-                <li><a href="/admin/index.xhtml">Admin Page</a></li>
+                <li class="active"><a href="#{request.contextPath}/member/index.xhtml">Member Page</a></li>
+                <li><a href="#{request.contextPath}/admin/index.xhtml">Admin Page</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
@@ -50,7 +50,7 @@ and open the template in the editor.
         <div class="jumbotron">
             <h1>Welcome to member page</h1>
             <br/>
-            <a href="/admin/index.xhtml"><button class="btn btn-info">Go to admin page</button></a>
+            <a href="#{request.contextPath}/admin/index.xhtml"><button class="btn btn-info">Go to admin page</button></a>
         </div>
     </div>
     </body>

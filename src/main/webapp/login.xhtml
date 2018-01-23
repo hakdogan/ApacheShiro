@@ -7,10 +7,10 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
         <f:metadata>
             <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{shiroBean.authorizedUserControl}"/>
         </f:metadata>
+    <h:head>
         <title>Kodcu.Com Tutorial - Apache Shiro JDBC Realm</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -39,8 +39,8 @@ and open the template in the editor.
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home Page</a></li>
-                        <li><a href="/member/index.xhtml">Member Page</a></li>
-                        <li><a href="/admin/index.xhtml">Admin Page</a></li>
+                        <li><a href="#{request.contextPath}/member/index.xhtml">Member Page</a></li>
+                        <li><a href="#{request.contextPath}/admin/index.xhtml">Admin Page</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">

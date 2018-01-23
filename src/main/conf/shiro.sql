@@ -39,7 +39,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'hakdogan','12345'),(2,'guest','guest');
+INSERT INTO `user` VALUES (1,'hakdogan','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5'),(2,'guest','84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,3 +77,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2013-04-16 18:06:01
+GRANT ALL PRIVILEGES ON shiro.* To 'shiro_user'@'localhost' IDENTIFIED BY 'shiro';
