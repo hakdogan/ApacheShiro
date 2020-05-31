@@ -1,33 +1,16 @@
-CREATE DATABASE  IF NOT EXISTS `shiro` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_turkish_ci */;
+CREATE DATABASE  IF NOT EXISTS `shiro`
+/*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_turkish_ci */;
+
 USE `shiro`;
--- MySQL dump 10.13  Distrib 5.6.7-rc, for osx10.7 (i386)
---
--- Host: localhost    Database: shiro
--- ------------------------------------------------------
--- Server version	5.6.7-rc-log
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `user`
---
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
+  `username` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
@@ -39,7 +22,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'hakdogan','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5'),(2,'guest','84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec');
+INSERT INTO `user` VALUES (1,'hakdogan','$shiro1$SHA-256$500000$WQ0P4lVCYUqBXp7QWe5W8A==$l5f4v+0PGNIpqxRUb77Sn0IxNWIjreb7Fn1bqYFoSUo='),(2,'guest','$shiro1$SHA-256$500000$TGn64LGntH7bcZkyqdQacg==$8l+lHwug0PSwPYoLDEwCeFQrxh2vgZiT96b17UUqabA=');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,6 +58,3 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2013-04-16 18:06:01
-GRANT ALL PRIVILEGES ON shiro.* To 'shiro_user'@'localhost' IDENTIFIED BY 'shiro';

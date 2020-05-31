@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
         <title>Apache Shiro - Admin Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,8 +10,8 @@
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
         <!-- Bootstrap -->
-        <link href="/resources/css/style.css" rel="stylesheet" media="screen"/>
-    </head>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
     <body>
     <div id="mainFrame">
         <nav class="navbar navbar-inverse" role="navigation">
@@ -56,13 +57,13 @@
             <tr>
                 <td>1</td>
                 <td>hakdogan</td>
-                <td>SHA-256: (5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5)</td>
+                <td>(12345) $shiro1$SHA-256$500000$WQ0P4lVCYUqBXp7QWe5W8A==$l5f4v+0PGNIpqxRUb77Sn0IxNWIjreb7Fn1bqYFoSUo=</td>
                 <td><span class="label label-success">ADMIN</span></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>guest</td>
-                <td>SHA-256 (84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec)</td>
+                <td>(guest) $shiro1$SHA-256$500000$TGn64LGntH7bcZkyqdQacg==$8l+lHwug0PSwPYoLDEwCeFQrxh2vgZiT96b17UUqabA=</td>
                 <td><span class="label label-default">GUEST</span></td>
             </tr>
             </tbody>

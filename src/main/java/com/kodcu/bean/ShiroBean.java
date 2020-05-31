@@ -2,20 +2,17 @@ package com.kodcu.bean;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.apache.shiro.subject.Subject;
-
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.NavigationHandler;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 /**
  * Created by hakdogan on 24/06/14.
  */
 
-@ManagedBean
+@Named("shiroBean")
 @RequestScoped
 public class ShiroBean {
 
@@ -50,34 +47,25 @@ public class ShiroBean {
 
         try{
 
-            Subject currentUser         = SecurityUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(username, new Sha256Hash(password).toHex());
-
+            final UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             token.setRememberMe(rememberMe);
-            currentUser.login(token);
+            SecurityUtils.getSubject().login(token);
 
         } catch (UnknownAccountException uae ) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "Your username wrong"));
-
         } catch (IncorrectCredentialsException ice ) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "Password is incorrect"));
-
         } catch (LockedAccountException lae ) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", "This username is locked"));
-
         } catch(AuthenticationException aex){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", aex.toString()));
         }
-
     }
 
     public void authorizedUserControl(){
-
         if(null != SecurityUtils.getSubject().getPrincipal()){
-
-            NavigationHandler nh =  FacesContext.getCurrentInstance().getApplication().getNavigationHandler();
+            final NavigationHandler nh =  FacesContext.getCurrentInstance().getApplication().getNavigationHandler();
             nh.handleNavigation(FacesContext.getCurrentInstance(), null, "/member/index.xhtml?faces-redirect=true");
-
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.kodcu.util;
 
-import java.io.IOException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import org.apache.shiro.subject.Subject;
@@ -14,8 +13,7 @@ import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter;
 public class MultipleRolesAuthorizationFilter extends RolesAuthorizationFilter {
 
     @Override
-    public boolean isAccessAllowed(ServletRequest request, ServletResponse response,
-                                   Object mappedValue) throws IOException {
+    public boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
 
         final Subject subject = getSubject(request, response);
         final String[] rolesArray = (String[]) mappedValue;

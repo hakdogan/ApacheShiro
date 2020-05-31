@@ -2,7 +2,7 @@
 
 # Apache Shiro
 
-This application illustrates and demonstrates use of the Apache Shiro JDBC Realm with MySQL Database and Java web application(JSF2.2) 
+This application demonstrates the use of the `Apache Shiro JDBC Realm` with `MySQL Database` in a Java Web Application(JSF2.2) 
 
 ## Exemplified topics
 
@@ -12,7 +12,7 @@ This application illustrates and demonstrates use of the Apache Shiro JDBC Realm
 * RememberMe functionality
 
 
-## SQL Schema
+## The application uses the following SQL Schema
 ```sql
 CREATE DATABASE `shiro`;
 
@@ -32,6 +32,19 @@ CREATE TABLE `userroles` (
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 ```
+## Requirements
+* JDK 8 or later
+* Maven 3.0.0 or later
+
+## To compile
+```bash
+mvn clean install
+```
+
+## To run
+```bash
+mvn liberty:run
+```
 
 ## A screenshot of the application
-<img src="http://i59.tinypic.com/2mxio37.png"/>
+![](images/shiro.png)

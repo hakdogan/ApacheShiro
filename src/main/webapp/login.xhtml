@@ -57,16 +57,15 @@ and open the template in the editor.
                         <div class="panel-heading">Giriş Formu</div>
                         <br/>
                         <h:form prependId="false">
-
                             <h:messages showDetail="false" />
                             <h:panelGrid columnClasses="loginTD" columns="2" cellpadding="2" cellspacing="2">
 
                                 <p>Username</p>
-                                <h:inputText value="#{shiroBean.username}"
+                                <h:inputText id="username" value="#{shiroBean.username}"
                                              required="true" requiredMessage="The username value is required." size="30"/>
 
                                 <p>Password</p>
-                                <h:inputSecret value="#{shiroBean.password}"
+                                <h:inputSecret id="password" value="#{shiroBean.password}"
                                                required="true" requiredMessage="The password value is required." size="30"/>
 
                                 <h:outputLabel/>
@@ -78,7 +77,6 @@ and open the template in the editor.
                                 <h:commandButton action="#{shiroBean.loginUser}" styleClass="btn btn-primary" value="Login"/>
                                 <br/>
                             </h:panelGrid>
-
                         </h:form>
                     </div>
                 </div>
