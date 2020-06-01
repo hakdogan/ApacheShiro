@@ -35,6 +35,15 @@ CREATE TABLE `userroles` (
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 ```
+
+## Defined users
+* hakdogan
+    * roles `admin`, `guest` 
+    * password `12345`
+* guest
+    * roles `guest`
+    * password `guest`
+    
 ## Requirements
 * JDK 8 or later
 * Maven 3.0.0 or later
@@ -70,4 +79,4 @@ sh compose-up.sh
 This option creates a `MySql Server` with the database and user needed by the web application then runs together with the app.
 
 ## A screenshot of the application
-![](images/shiro.png)
+![](images/screenshot.png)
