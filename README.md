@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/hakdogan/ApacheShiro.svg?style=svg)](https://circleci.com/gh/hakdogan/ApacheShiro)
+[![Build Status](https://travis-ci.org/hakdogan/ApacheShiro.svg?branch=master)](https://travis-ci.org/hakdogan/ApacheShiro)
 !["Docker Pulls](https://img.shields.io/docker/pulls/hakdogan/shiro.svg)
 
 # Apache Shiro
