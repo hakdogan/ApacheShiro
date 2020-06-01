@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  mysqlserver:
+    build:
+      context: mysql/
+    container_name: mysql_server
+    ports:
+      - 3306:3306
+  shiro:
+    image: hakdogan/shiro:latest
+    ports:
+      - 9080:9080
+    container_name: shiro_app
+    depends_on:
+      - mysqlserver
