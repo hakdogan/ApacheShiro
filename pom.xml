@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <liberty.var.default.http.port>9080</liberty.var.default.http.port>
         <liberty.var.default.https.port>9443</liberty.var.default.https.port>
-        <shiro.version>1.4.2</shiro.version>
+        <shiro.version>1.7.1</shiro.version>
         <commons-logging.version>1.2</commons-logging.version>
         <mysql.connector>8.0.20</mysql.connector>
     </properties>
